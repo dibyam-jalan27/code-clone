@@ -23,6 +23,7 @@ function RunButton() {
       await saveExecution({
         language,
         code: result.code,
+        input: result.input || "",
         output: result.output || undefined,
         error: result.error || undefined,
       });

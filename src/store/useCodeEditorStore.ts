@@ -79,7 +79,6 @@ export const useCodeEditorStore = create<CodeEditorState>((set, get) => {
     runCode: async () => {
       const { language, getCode, input } = get();
       const code = getCode();
-      // console.log(input);
 
       if (!code) {
         set({ error: "Please enter some code" });
@@ -111,7 +110,7 @@ export const useCodeEditorStore = create<CodeEditorState>((set, get) => {
         if (data.message) {
           set({
             error: data.message,
-            executionResult: { code, output: "", error: data.message },
+            executionResult: { code, input, output: "", error: data.message },
           });
           return;
         }
@@ -123,6 +122,7 @@ export const useCodeEditorStore = create<CodeEditorState>((set, get) => {
             error,
             executionResult: {
               code,
+              input,
               output: "",
               error,
             },
@@ -136,6 +136,7 @@ export const useCodeEditorStore = create<CodeEditorState>((set, get) => {
             error,
             executionResult: {
               code,
+              input,
               output: "",
               error,
             },
@@ -151,6 +152,7 @@ export const useCodeEditorStore = create<CodeEditorState>((set, get) => {
           error: null,
           executionResult: {
             code,
+            input,
             output: output.trim(),
             error: null,
           },
@@ -159,7 +161,12 @@ export const useCodeEditorStore = create<CodeEditorState>((set, get) => {
         console.log("Error running code:", error);
         set({
           error: "Error running code",
-          executionResult: { code, output: "", error: "Error running code" },
+          executionResult: {
+            code,
+            input,
+            output: "",
+            error: "Error running code",
+          },
         });
       } finally {
         set({ isRunning: false });

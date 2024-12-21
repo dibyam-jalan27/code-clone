@@ -54,10 +54,10 @@ function InputPanel() {
       <div className="relative">
         <div
           className="relative bg-[#1e1e2e]/50 backdrop-blur-sm border border-[#313244] 
-        rounded-xl p-4 h-[270px] overflow-auto font-mono text-sm items-center justify-center"
+        rounded-xl p-4 h-[200px] overflow-auto font-mono text-sm items-center justify-center"
         >
           <textarea
-            className="whitespace-pre-wrap text-gray-300 bg-transparent w-full h-[97%] focus:outline-none focus:ring-0 focus:border-none"
+            className="whitespace-pre-wrap text-gray-300 bg-transparent w-full h-[95%] focus:outline-none focus:ring-0 focus:border-none"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Enter your input here..."
